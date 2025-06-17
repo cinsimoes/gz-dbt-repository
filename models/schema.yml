@@ -1,0 +1,64 @@
+version: 2
+
+sources:
+  - name: gz_raw_data
+    description: "Raw source data for GZ project"
+    schema: gz_raw_data
+
+    tables:
+      - name: raw_gz_ship
+        description: "Raw shipment data containing shipping fees and logistics cost"
+        columns:
+          - name: orders_id
+            description: "Unique identifier for the order"
+            data_type: INTEGER
+
+          - name: shipping_fee
+            description: "Primary shipping fee"
+            data_type: FLOAT
+
+          - name: shipping_fee_1
+            description: "Secondary shipping fee (possibly from another source)"
+            data_type: FLOAT
+
+          - name: logCost
+            description: "Logistics cost"
+            data_type: FLOAT
+
+          - name: ship_cost
+            description: "Shipping cost as text (unstructured)"
+            data_type: STRING
+
+      - name: raw_gz_product
+        description: "Product master data with purchase price"
+        columns:
+          - name: products_id
+            description: "Unique product identifier"
+            data_type: INTEGER
+
+          - name: purchSE_PRICE
+            description: "Purchase price of the product (stored as STRING)"
+            data_type: STRING
+
+      - name: raw_gz_sales
+        description: "Sales data including quantity, revenue, and product references"
+        columns:
+          - name: date_date
+            description: "Date of the sale"
+            data_type: DATE
+
+          - name: orders_id
+            description: "Order identifier"
+            data_type: INTEGER
+
+          - name: pdt_id
+            description: "Product identifier"
+            data_type: INTEGER
+
+          - name: revenue
+            description: "Revenue generated from the sale"
+            data_type: FLOAT
+
+          - name: quantity
+            description: "Quantity of product sold"
+            data_type: INTEGER
