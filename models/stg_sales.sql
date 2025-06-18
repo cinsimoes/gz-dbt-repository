@@ -1,4 +1,4 @@
--- stg_raw_sales.sql
+-- stg_sales.sql
 
 with
 
