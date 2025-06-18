@@ -1,12 +1,13 @@
 version: 2
 
 sources:
-  - name: gz_raw_data
+  - name: raw
     description: "Raw source data for GZ project"
     schema: gz_raw_data
 
     tables:
-      - name: raw_gz_ship
+      - name: ship
+        identifier: gz_raw_ship
         description: "Raw shipment data containing shipping fees and logistics cost"
         columns:
           - name: orders_id
@@ -29,7 +30,8 @@ sources:
             description: "Shipping cost as text (unstructured)"
             data_type: STRING
 
-      - name: raw_gz_product
+      - name: product
+        identifier: raw_gz_product
         description: "Product master data with purchase price"
         columns:
           - name: products_id
@@ -40,7 +42,8 @@ sources:
             description: "Purchase price of the product (stored as STRING)"
             data_type: STRING
 
-      - name: raw_gz_sales
+      - name: sales
+        identifier: raw_gz_sales
         description: "Sales data including quantity, revenue, and product references"
         columns:
           - name: date_date
